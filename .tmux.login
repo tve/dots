@@ -1,4 +1,4 @@
-if-shell "(($(tmux display -p '#{session_many_attached}') > 0))" \
+if-shell "test (tmux display -p '#{session_many_attached}') -gt 0" \
   choose-session \
   "run-shell \"tmux choose-session \\\"switch-client -t '%%'; kill-session -t '(tmux display -p '#S')'\\\"\""
 
